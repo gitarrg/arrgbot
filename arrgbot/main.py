@@ -61,12 +61,9 @@ class ArrgBot(commands.Bot):
 
 
 def main():
-
     bot = ArrgBot()
     bot.run(BOT_TOKEN)
 
 
 if __name__ == '__main__':
     main()
-
-

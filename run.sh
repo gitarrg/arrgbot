@@ -4,6 +4,6 @@
 export PYTHONPATH=.
 
 # Test Bot:
-export BOT_TOKEN="<insert your token>"
+# export BOT_TOKEN=""
 
 python arrgbot/main.py

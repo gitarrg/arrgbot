@@ -1,1 +1,0 @@
-web: python "arrgbot/main.py"

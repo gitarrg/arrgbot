@@ -19,3 +19,5 @@ test.db
 *.sublime-project
 google_creds.json
 
+.env
+

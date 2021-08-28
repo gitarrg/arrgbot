@@ -58,7 +58,7 @@ class DebugCog(commands.Cog):
 
     @commands.command(aliases=["monat", "månad"])
     async def month(self, ctx):
-        """Just prints the current year."""
+        """Just prints the current month."""
         now = current_server_time()
         await ctx.send(f"It is {now:MMMM}.")
 
@@ -71,4 +71,3 @@ class DebugCog(commands.Cog):
 
 def setup(bot):
     bot.add_cog(DebugCog(bot))
-
