@@ -12,13 +12,13 @@ from PIL import Image
 import discord
 
 # IMPORT LOCAL LIBRARIES
-from arrgbot import utils
+from arrgbot.utils import async_utils
 
 
 DIR = os.path.dirname(__file__) + "/gifs_imgs/"
 
 
-@utils.run_in_executor
+@async_utils.run_in_executor
 def make_bonk_gif(avatar_url):
     # Get Avatar
     response = requests.get(avatar_url)
@@ -74,7 +74,7 @@ def make_bonk_gif(avatar_url):
     return image_binary
 
 
-@utils.run_in_executor
+@async_utils.run_in_executor
 def make_pet_gif(avatar_url):
     # Get Avatar
     response = requests.get(avatar_url)

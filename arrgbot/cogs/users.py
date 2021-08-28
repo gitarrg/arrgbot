@@ -124,5 +124,6 @@ class UsersCog(commands.Cog):
 
         await ctx.channel.send(embed=embed)
 
+
 def setup(bot):
     bot.add_cog(UsersCog(bot))

@@ -3,3 +3,4 @@ arrow
 requests
 Pillow
 aiofiles
+stringcase
