@@ -6,3 +6,5 @@ services:
 
     environment:
       BOT_TOKEN: ${BOT_TOKEN}
+      WCL_CLIENT_ID: ${WCL_CLIENT_ID}
+      WCL_CLIENT_SECRET: ${WCL_CLIENT_SECRET}
