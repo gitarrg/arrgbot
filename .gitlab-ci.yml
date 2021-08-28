@@ -1,0 +1,12 @@
+image: docker
+
+services:
+  - docker:dind
+
+run:
+  script:
+    - echo Updating!
+    - docker-compose -p arrgbot up --build -d
+
+# Docker Runner:
+# sudo gitlab-runner register -n --url https://gitlab.com/ --registration-token TOKEN --executor shell --description "tomato_runner_2"

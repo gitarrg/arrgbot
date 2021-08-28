@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+*.swp
+*.*~
+*~
+*.zip
+.scannerwork
+
+# tmp place for the google credentials
+configs/*.json
+/logs
+/tmp
+/tests
+/chatlog_backups
+/db_backups
+test.db
+
+*.sublime-workspace
+*.sublime-project
+google_creds.json
+
