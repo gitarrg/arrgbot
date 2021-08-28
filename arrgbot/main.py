@@ -13,7 +13,7 @@ from discord.ext import commands
 from arrgbot import cogs # import debug
 
 
-BOT_TOKEN = os.getenv("BOT_TOKEN") or "Nzc1Nzc0MzIxMzE4Mjk3NjMw.X6rOIw.W8JHUlF-8345951y9WASG1bCu5Y"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 
 COMMAND_PREFIX = ("!rcu ", "!")
