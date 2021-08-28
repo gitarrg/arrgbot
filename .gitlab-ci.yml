@@ -6,7 +6,9 @@ services:
 run:
   script:
     - echo Updating!
-    - docker-compose -p arrgbot up --build -d
+    - docker-compose -e BOT_TOKEN=$BOT_TOKEN -p arrgbot up --build -d
 
 # Docker Runner:
-# sudo gitlab-runner register -n --url https://gitlab.com/ --registration-token TOKEN --executor shell --description "tomato_runner_2"
+# sudo gitlab-runner register -n --url https://gitlab.com/ --registration-token TOKEN --executor shell --description "tomato_runner_3"
+
+
