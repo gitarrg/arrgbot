@@ -86,30 +86,6 @@ TEEMING = discord.PartialEmoji(id=718570180007034971, name="Teeming")
 VOLCANIC = discord.PartialEmoji(id=718570203327365193, name="Volcanic")
 
 
-## CORRUPTIONS
-AVOIDANT = discord.PartialEmoji(id=713402473968042044, name="Avoidant")
-DEADLYMOMENTUM = discord.PartialEmoji(id=713402486337175575, name="DeadlyMomentum")
-ECHOINGVOID = discord.PartialEmoji(id=713402498747990118, name="EchoingVoid")
-EXPEDIENT = discord.PartialEmoji(id=713402519010803813, name="Expedient")
-GLIMPSEOFCLARITY = discord.PartialEmoji(id=713402533040619570, name="GlimpseofClarity")
-GUSHINGWOUND = discord.PartialEmoji(id=713402549411250177, name="GushingWound")
-HONEDMIND = discord.PartialEmoji(id=713402561159495720, name="HonedMind")
-INEFFABLETRUTH = discord.PartialEmoji(id=713402574161576027, name="IneffableTruth")
-INFINITESTARS = discord.PartialEmoji(id=713402587315044362, name="InfiniteStars")
-MASTERFUL = discord.PartialEmoji(id=713402599428325417, name="Masterful")
-RACINGPULSE = discord.PartialEmoji(id=713402613445558323, name="RacingPulse")
-SEVERE = discord.PartialEmoji(id=713402626263482529, name="Severe")
-SIPHONER = discord.PartialEmoji(id=713402641648058469, name="Siphoner")
-STRIKETHROUGH = discord.PartialEmoji(id=713402655900172389, name="Strikethrough")
-SURGINGVITALITY = discord.PartialEmoji(id=713402668621758567, name="SurgingVitality")
-TWILIGHTDEVASTATION = discord.PartialEmoji(id=713402684874686475, name="TwilightDevastation")
-TWISTEDAPPENDAGE = discord.PartialEmoji(id=713402699215011870, name="TwistedAppendage")
-VERSATILE = discord.PartialEmoji(id=713402711839604828, name="Versatile")
-VOIDRITUAL = discord.PartialEmoji(id=713402745654083596, name="VoidRitual")
-LASHOFTHEVOID = discord.PartialEmoji(id=718675065557745724, name="LashOfTheVoid")
-
-
-
 emotes = {name: emote for name, emote in globals().items() if name.isupper()}
 emotes = {name.lower().replace(" ", ""): emote for name, emote in emotes.items()}
 

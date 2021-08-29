@@ -17,7 +17,6 @@ from arrgbot.utils import discord_utils
 from arrgbot import wow_data
 from arrgbot.utils import raider_io
 from arrgbot.utils import utils_warcraftlogs
-from arrgbot.utils import wow_constants
 
 
 BRONJAHM_START_TIME = arrow.get("2020-11-16T18:10:00+01:00")
@@ -82,7 +81,7 @@ def get_vendor_corruptions(set_id=None):
     if set_id == None:
         set_id = get_halfweek_id()
     set_id = set_id % 8
-    return wow_constants.CORRUPTION_VENDOR_SETS.get(set_id, [])
+    return wow_data.CORRUPTION_VENDOR_SETS.get(set_id, [])
 
 
 ################################################################################
@@ -173,20 +172,71 @@ class WowCog(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @commands.command(aliases=["blueproto"])
-    async def skadi(self, ctx):
+    @commands.command()
+    async def tormentors(self, ctx, n: int = 3):
+        """Display the spawn's for the next 3 tormentors of torghast event."""
+        n = min(n, 12)
+
+        tormentors = [
+            "Manifestation of Pain",
+            "Versya the Damned",
+            "Zul'gath the Flayer",
+            "Golmak the Monstrosity",
+            "Sentinel Pyrophus",
+            "Mugrem the Soul Devourer",
+            "Kazj the Sentinel",
+            "Promathiz",
+            "Sentinel Shakorzeth",
+            "Intercessor Razzram",
+            "Gruukuuek the Elder",
+            "Algel the Haunter",
+            "Malieus Grakizz",
+            "Gralebboih",
+            "The Mass of Souls",
+        ]
+
         embed = discord.Embed()
-        embed.title = "Skadi the Ruthless Spawn Timers:"
-        embed.color = discord.Colour.from_rgb(10, 222, 230)
-        embed.set_thumbnail(url="https://wow.zamimg.com/images/wow/icons/large/ability_mount_drake_proto.jpg")
+        embed.title = "Tormentors of Torghast:"
+        embed.color = discord.Colour.from_rgb(140, 60, 150)
 
-        for i in range(3):
-            spawn = get_next_icecrown_spawn(start=SKADI_START_TIME, offset=i)
-            spawn_fmt = spawn.strftime("%d.%m.%Y %H:%M ST")
-            spawn_dur = spawn.humanize(granularity=["hour", "minute"])
-            embed.add_field(name=spawn_fmt, value=spawn_dur, inline=False)
+        # Get last spawn
+        now = arrow.utcnow().to("Europe/Berlin")
+        last_spawn = now.floor("hour")
+        if last_spawn.hour % 2 == 0:
+            last_spawn = last_spawn.shift(hours=-1)
 
+        # Calc initial offset
+        diff = now - arrow.get("2021-08-28T21:00:00+02:00")  # <- known time for a spawn of "Manifestation of Pain"
+        diff_hours = diff.total_seconds() / (60*60)
+        offset = math.floor(diff_hours / 2)
+
+        # Calc Spawns and Names
+        names = []
+        times = []
+        durations = []
+        for i in range(n):
+            spawn_time = last_spawn.shift(hours=2*i)
+            spawn_fmt = spawn_time.strftime("%H:%M ST")
+            spawn_dur = spawn_time.humanize(granularity=["hour", "minute"])
+
+            index = (i+offset) % len(tormentors)
+            name = tormentors[index]
+
+            if i == 1:
+                name = f"**{name}**"
+                spawn_fmt = f"**{spawn_fmt}**"
+                spawn_dur = f"**{spawn_dur}**"
+
+            names.append(name)
+            times.append(spawn_fmt)
+            durations.append(spawn_dur)
+
+        # Build the Embed
+        embed.add_field(name="Boss:", value="\n".join(names))
+        embed.add_field(name="‎When:", value="\n".join(times))
+        embed.add_field(name="‎", value="‎\n".join(durations))
         await ctx.send(embed=embed)
+
 
     ############################################################################
     # Character/RIO Info
@@ -212,7 +262,6 @@ class WowCog(commands.Cog):
     @commands.command()
     async def logs(self, ctx, nickname: typing.Optional[NicknameMention]):
         """Lookup someones RIO Profile."""
-
         nickname = nickname or ctx.author.display_name
         name, realm = get_name_realm(nickname)
         if not (name and realm):
