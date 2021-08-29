@@ -34,6 +34,7 @@ EXTENSIONS = [
     "cogs.game_wow",
     "cogs.game_among_us",
     "cogs.jokes",
+    "cogs.rcu",
 ]
 
 

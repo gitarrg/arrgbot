@@ -20,6 +20,9 @@ GOLD = "💰"
 TRADE = "🤝"
 
 
+GOLD2 = discord.PartialEmoji(id=667911011109699604, name="Gold")
+
+
 # PEPE EMOTES
 PEPESALUTE = discord.PartialEmoji(id=658829912865505280, name="pepesalute")
 PEEPOSHRUG = discord.PartialEmoji(id=718959168853114970, name="peepoShrug")
