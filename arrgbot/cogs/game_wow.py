@@ -217,7 +217,7 @@ class WowCog(commands.Cog):
         for i in range(n):
             spawn_time = last_spawn.shift(hours=2*i)
             spawn_fmt = spawn_time.strftime("%H:%M ST")
-            spawn_dur = spawn_time.humanize(granularity=["hour", "minute"])
+            spawn_dur = f"<t:{spawn_time.timestamp():.0f}:R>"
 
             index = (i+offset) % len(tormentors)
             name = tormentors[index]
