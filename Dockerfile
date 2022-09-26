@@ -8,7 +8,7 @@ RUN pip3 install -r /requirements.txt
 ENV PYTHONPATH /app
 
 #### CODE
-COPY . /app/arrgbot
+COPY ./arrgbot /app/arrgbot
 
 #### MAIN
 WORKDIR /app
