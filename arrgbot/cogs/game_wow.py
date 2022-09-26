@@ -17,6 +17,7 @@ from arrgbot.utils import discord_utils
 from arrgbot import wow_data
 from arrgbot.utils import raider_io
 from arrgbot.utils import utils_warcraftlogs
+from arrgbot.cogs.wow import wow_rio
 
 
 BRONJAHM_START_TIME = arrow.get("2020-11-16T18:10:00+01:00")
@@ -258,6 +259,18 @@ class WowCog(commands.Cog):
 
         embed = raider_io.build_rio_embed(rio_info)
         return await message.edit(embed=embed)
+
+    @commands.command()
+    async def cutoff(self, ctx, region="eu"):
+        """Checks the current M+ Title Score Cutoff."""
+
+        message = await ctx.send(f"checking...")
+        score = await wow_rio.get_cutoff(region=region)
+
+        if not score:
+            return await message.edit(content="something went wrong. :(")
+
+        await message.edit(content=f"Cutoff: **{score}**.")
 
     @commands.command()
     async def logs(self, ctx, nickname: typing.Optional[NicknameMention]):
