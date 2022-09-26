@@ -1,0 +1,11 @@
+# fly.toml file generated for arrgbot on 2022-09-26T15:31:55+01:00
+
+app = "arrgbot"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+
+[deploy]
+  strategy = "immediate"

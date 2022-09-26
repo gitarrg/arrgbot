@@ -17,6 +17,7 @@ from arrgbot.utils import discord_utils
 from arrgbot import wow_data
 from arrgbot.utils import raider_io
 from arrgbot.utils import utils_warcraftlogs
+from arrgbot.cogs.wow import wow_affixes
 from arrgbot.cogs.wow import wow_rio
 
 
@@ -128,6 +129,9 @@ class WowCog(commands.Cog):
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         raise error
+
+    # External Commands
+    affixes = wow_affixes.affixes
 
     ################################
     # Expansion Release Dates
