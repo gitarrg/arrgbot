@@ -20,4 +20,5 @@ test.db
 google_creds.json
 
 .env
+venv
 
