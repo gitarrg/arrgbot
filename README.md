@@ -23,3 +23,11 @@ export PYTHONPATH=.
 export BOT_TOKEN="<BOT TOKEN>"
 python arrgbot/main.py
 ```
+
+## Deploy
+```bash
+ssh tomato
+cd ~/arrgbott
+git pull
+docker-compose --env-file /arrgbot_env -p arrgbot up --build -d
+```
