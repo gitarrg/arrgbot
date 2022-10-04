@@ -26,3 +26,12 @@ SHADOWLANDS = Expansion(
     abbreviations=["sl"],
     img="https://scontent-lhr8-2.xx.fbcdn.net/v/t1.6435-9/82158322_10157061179678719_2296017863502200832_n.png?_nc_cat=102&ccb=1-5&_nc_sid=dd9801&efg=eyJpIjoidCJ9&_nc_ohc=iNSUkKzpqU8AX_HlsZ8&_nc_ht=scontent-lhr8-2.xx&oh=ea123b280e8f22c8e16083855d46dc99&oe=615089A3"
 )
+
+
+DRAGONFLIGHT = Expansion(
+    "Dragonflight",
+    release="2022-11-28",
+    abbreviations=["df"],
+    img="https://i.imgur.com/U97A6MB.jpeg"
+)
+
