@@ -158,6 +158,12 @@ class WowCog(commands.Cog):
         embed = self._wow_expansion_release(wow_data.SHADOWLANDS)
         return await ctx.send(embed=embed)
 
+    @commands.command(aliases=["df", "drafli"])
+    async def dragonflight(self, ctx):
+        """Show time until/since Dragonflight Release."""
+        embed = self._wow_expansion_release(wow_data.DRAGONFLIGHT)
+        return await ctx.send(embed=embed)
+
     ################################
     # Shadowlands: Prepatch Event
     #
