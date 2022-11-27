@@ -24,10 +24,15 @@ export BOT_TOKEN="<BOT TOKEN>"
 python arrgbot/main.py
 ```
 
-## Deploy
+# Initial Deploy:
+
+
 ```bash
-ssh tomato
-cd ~/arrgbott
-git pull
-docker-compose --env-file /arrgbot_env -p arrgbot up --build -d
+# install fly.io cli and login
+curl -L https://fly.io/install.sh | sh
+flyctl auth login
+
+#
+flyctl secrets set BOT_TOKEN=<THE_BOT_TOKEN>
+flyctl launch
 ```
