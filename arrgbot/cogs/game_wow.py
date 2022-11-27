@@ -137,13 +137,15 @@ class WowCog(commands.Cog):
     # Expansion Release Dates
     #
 
-    def _wow_expansion_release(self, expansion):
+    def _wow_expansion_release(self, expansion: wow_data.Expansion):
+
+        time_rel = expansion.release.humanize(granularity=["day", "hour", "minute"])
+
         embed = discord.Embed()
         embed.color = discord.Colour.from_rgb(255, 180, 0)
         embed.title = f"{expansion.name} Release"
-        embed.description = expansion.release.humanize(granularity=["day", "hour", "minute"])
+        embed.description = f"{time_rel} (<t:{expansion.release.int_timestamp}:f>)"
         embed.set_image(url=expansion.img)
-        embed.set_footer(text=f"release on {expansion.release:DD MMMM HH:mm}")
         return embed
 
     @commands.command()
