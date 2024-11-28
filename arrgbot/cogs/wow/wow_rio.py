@@ -19,7 +19,7 @@ async def fetch_data(url, **params):
 #
 
 
-async def get_cutoff(season="season-df-4", region="eu", faction="all"):
+async def get_cutoff(season="season-tww-1", region="eu", faction="all"):
     """Returns the Score Cutoff for the 0.1% Title."""
     url = "https://raider.io/api/v1/mythic-plus/season-cutoffs"
     data = await fetch_data(url, region=region, season=season)
